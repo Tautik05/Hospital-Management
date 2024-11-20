@@ -1,1 +1,4 @@
-env/
+# Ignore .env files (general and specific)
+.env
+*.env
+hospital_managament/.env
