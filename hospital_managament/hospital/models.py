@@ -9,8 +9,8 @@ class hospital(models.Model):
     address = models.CharField(max_length=200)
     phone_number = models.CharField(max_length=15)
     email = models.EmailField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    departments = models.ManyToManyField('Department', related_name='departments_available')
+    created_at = models.DateTimeField(auto_now_add=True, blank=True, null=True)
+    departments = models.ManyToManyField(Department, related_name='departments_available')
 
 
     def __str__(self):
@@ -28,10 +28,10 @@ class hospitalUserProfile(models.Model):
         return self.user.username
     
 class PatientRecord(models.Model):
-    patient = models.ForeignKey(Patient, on_delete=models.CASCADE)
-    hospital = models.ForeignKey(hospital, on_delete=models.CASCADE)
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE)
-    created = models.DateTimeField(auto_now_add=True)
+    patient = models.ForeignKey(Patient, on_delete=models.CASCADE, null=True, blank=True)
+    hospital = models.ForeignKey(hospital, on_delete=models.CASCADE, null=True, blank=True)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, null=True, blank=True)
+    created = models.DateTimeField(auto_now_add=True, null=True, blank=True)
 
 
     

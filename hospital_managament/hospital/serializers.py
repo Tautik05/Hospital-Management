@@ -74,5 +74,5 @@ class HospitalUserSerializer(serializers.ModelSerializer):
 class HospitalSerializer(serializers.ModelSerializer):
     class Meta:
         model = hospital
-        fields = ['id', 'name', 'address', 'phone_number', 'email', 'created_at']
+        fields = ['id', 'name', 'address', 'phone_number', 'email', 'created_at', 'departments']
         read_only_fields = ['id', 'created_at']
