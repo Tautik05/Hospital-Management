@@ -76,3 +76,19 @@ class HospitalSerializer(serializers.ModelSerializer):
         model = hospital
         fields = ['id', 'name', 'address', 'phone_number', 'email', 'created_at', 'departments']
         read_only_fields = ['id', 'created_at']
+
+
+
+
+
+class PatientRecordSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PatientRecord
+        fields = ['id', 'patient', 'hospital', 'doctor', 'created']
+        read_only_fields = ['id', 'created']       
+
+
+
+
+
+        
