@@ -14,11 +14,11 @@ class Specialization(models.Model):
     department = models.ForeignKey('Department',on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.name
+        return f"{self.name} - {self.department}"
 
 # Doctor Model
 class Doctor(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
     contact_number = models.CharField(max_length=15)
     specialization = models.ForeignKey(Specialization, on_delete=models.CASCADE)
 
