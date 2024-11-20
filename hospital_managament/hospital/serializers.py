@@ -8,7 +8,7 @@ class UserProfileSerializer(serializers.ModelSerializer):
         fields = ['isAdmin', 'hospital', 'phone_number', 'uuid']
 
 
-class UserSerializer(serializers.ModelSerializer):
+class HospitalUserSerializer(serializers.ModelSerializer):
     profile = UserProfileSerializer()
 
     class Meta:
